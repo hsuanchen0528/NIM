@@ -13,7 +13,7 @@ int choose(int nim_sum[]);
 void operation(int i,int nim_sum[]);
 void final_print(int row_c,int amount);
 
-void ten_to_two(int id,int number,int nim_sum[]){ // ¤Q¶i¦ìÂà¤G¶i¦ì
+void ten_to_two(int id,int number,int nim_sum[]){ // åé€²ä½è½‰äºŒé€²ä½
     int k=0,the_most=9;
     for(int i=0;i<10;i++)
        s_binary[id][i]=0;
@@ -26,7 +26,7 @@ void ten_to_two(int id,int number,int nim_sum[]){ // ¤Q¶i¦ìÂà¤G¶i¦ì
     for(;k>=0;k--)
         nim_sum[k]+=s_binary[id][k];
 }
-void print_all(){ //¦L¥X²{ªp
+void print_all(){ //å°å‡ºç¾æ³
     for(int i=1;i<=n;i++)
     {
         cout<<i;
@@ -35,7 +35,7 @@ void print_all(){ //¦L¥X²{ªp
         cout<<"\n";
     }
 }
-void print_ten_to_two(){//¤ÀªR¤G¶i¨îµ²ªG
+void print_ten_to_two(){//åˆ†æäºŒé€²åˆ¶çµæœ
     int nim_sum[10]={};
     for(int i=1;i<=n;i++)
        ten_to_two(i,s[i],nim_sum);
@@ -43,7 +43,7 @@ void print_ten_to_two(){//¤ÀªR¤G¶i¨îµ²ªG
         nim_sum[i]=nim_sum[i]%2 ;
     pick(nim_sum);
 }
-void pick(int nim_sum[]){ //¸Ó®³¨«¦h¤Ö
+void pick(int nim_sum[]){ //è©²æ‹¿èµ°å¤šå°‘
     if(choose(nim_sum))
         for(int i=1;i<=n;i++)
             if(s[i]!=0){
@@ -51,7 +51,7 @@ void pick(int nim_sum[]){ //¸Ó®³¨«¦h¤Ö
                 break;
             }
 }
-int choose(int nim_sum[]){//®³­ş¤@¦C
+int choose(int nim_sum[]){//æ‹¿å“ªä¸€åˆ—
     for(int i=1;i<=n;i++)
     {
         for(int j=10;j>=0;j--)
@@ -80,55 +80,55 @@ void operation(int i,int nim_sum[]){
     }
     final_print(i,minus_-plus_);
 }
-void final_print(int row_,int amount){//°õ¦æ (pc)
-    cout<<"®³¨ú ²Ä"<<row_<<"¦C ªº "<<amount<<"­Ó\n";
+void final_print(int row_,int amount){//åŸ·è¡Œ (pc)
+    cout<<"æ‹¿å– ç¬¬"<<row_<<"åˆ— çš„ "<<amount<<"å€‹\n";
     s[row_]-=amount;
     sum-=amount;
 }
 
 int main(){
-    cout<<"--- ¥§ ©i ¹C À¸ --- \n";
-    cout<<"«e¸m§@·~: ¦³¼Æ¦C/°ï¡A¨C¦C/°ï¼Æ¶q¥i¤£¤@­P\n";
+    cout<<"--- å°¼ å§† éŠ æˆ² --- \n";
+    cout<<"å‰ç½®ä½œæ¥­: æœ‰æ•¸åˆ—/å †ï¼Œæ¯åˆ—/å †æ•¸é‡å¯ä¸ä¸€è‡´\n";
     cout<<"ex:\n1 * * * *\n2 * *\n3 * * *\n4 *\n5 * * * *\n\n";
-    cout<<"¹Cª±³W«h: ¥i¥H®³¦P¤@°ïªº¼Æ­Ó(¥u¯à®³¦P¤@°ï¡A¨Ã¤£­­®³¨ú¼Æ¥Ø)¡A®³¨«³Ì«á¤@­Óªº¤HÀò³Ó\n";
-    cout<<"ex:\n¥i®³¨«²Ä3¦Cªº¤@­Ó¡B¨â­Ó¡B©Î¥ş®³¡A¦ı¤£¯à¦P®É®³¨«²Ä3¦Cªº¤@­Ó©M²Ä2¦C¤@­Ó\n\n"  ;
+    cout<<"éŠç©è¦å‰‡: å¯ä»¥æ‹¿åŒä¸€å †çš„æ•¸å€‹(åªèƒ½æ‹¿åŒä¸€å †ï¼Œä¸¦ä¸é™æ‹¿å–æ•¸ç›®)ï¼Œæ‹¿èµ°æœ€å¾Œä¸€å€‹çš„äººç²å‹\n";
+    cout<<"ex:\nå¯æ‹¿èµ°ç¬¬3åˆ—çš„ä¸€å€‹ã€å…©å€‹ã€æˆ–å…¨æ‹¿ï¼Œä½†ä¸èƒ½åŒæ™‚æ‹¿èµ°ç¬¬3åˆ—çš„ä¸€å€‹å’Œç¬¬2åˆ—ä¸€å€‹\n\n"  ;
     cout<<" ----------------- \n";
     while(yon==1){
         yon=0;
-        cout<<"«e¸m§@·~:\n";
-        cout<<"¿é¤J¦C/°ï¼Æ ( 1<n<10 ):  ";
+        cout<<"å‰ç½®ä½œæ¥­:\n";
+        cout<<"è¼¸å…¥åˆ—/å †æ•¸ ( 1<n<10 ):  ";
         cin>>n;
         cout<<"\n";
         while(n<=1 or n>9)
         {
-            cout<<"¿é¤Jªº­È¶W¥X½d³ò,½Ğ¦A¥´¤@¦¸\n";
-            cout<<"¿é¤J¦C/°ï¼Æ ( 1<n<10 ):  ";
+            cout<<"è¼¸å…¥çš„å€¼è¶…å‡ºç¯„åœ,è«‹å†æ‰“ä¸€æ¬¡\n";
+            cout<<"è¼¸å…¥åˆ—/å †æ•¸ ( 1<n<10 ):  ";
             cin>>n;
         }
         for(int i=1;i<=n;i++)
         {
-            cout<<"²Ä"<<i<<"¦C/°ï ¦³ ? ­Ó ( 0<n<10 ):  ";
+            cout<<"ç¬¬"<<i<<"åˆ—/å † æœ‰ ? å€‹ ( 0<n<10 ):  ";
             cin>>s[i];
             cout<<"\n";
             while(s[i]>9 or s[i]<=0)
             {
-                cout<<"¿é¤Jªº­È¶W¥X½d³ò,½Ğ¦A¥´¤@¦¸\n";
-                cout<<"²Ä"<<i<<"¦C/°ï ¦³ ? ­Ó ( 0<n<10 ):  ";
+                cout<<"è¼¸å…¥çš„å€¼è¶…å‡ºç¯„åœ,è«‹å†æ‰“ä¸€æ¬¡\n";
+                cout<<"ç¬¬"<<i<<"åˆ—/å † æœ‰ ? å€‹ ( 0<n<10 ):  ";
                 cin>>s[i];
                 cout<<"\n";
             }
             sum+=s[i];
         }
         cout<<" ----------------- \n";
-        cout<<"¶}©l¹CÀ¸:\n";
+        cout<<"é–‹å§‹éŠæˆ²:\n";
 
         srand( time(NULL) );
         pss=rand()%3 + 1;
-        cout<<"¿é¤J¼Æ¦r(1°Å¤M 2¥ÛÀY 3¥¬): ";
+        cout<<"è¼¸å…¥æ•¸å­—(1å‰ªåˆ€ 2çŸ³é ­ 3å¸ƒ): ";
         cin>>ppss;
         cout<<"\n";
         while(1>ppss or ppss>3){
-                cout<<"¿é¤Jªº­È¶W¥X½d³ò,½Ğ¦A¥´¤@¦¸\n"<<"\n¿é¤J¼Æ¦r(1°Å¤M 2¥ÛÀY 3¥¬): ";
+                cout<<"è¼¸å…¥çš„å€¼è¶…å‡ºç¯„åœ,è«‹å†æ‰“ä¸€æ¬¡\n"<<"\nè¼¸å…¥æ•¸å­—(1å‰ªåˆ€ 2çŸ³é ­ 3å¸ƒ): ";
                 cin>>ppss;
                 cout<<"\n";
         }
@@ -142,24 +142,24 @@ int main(){
             f=0;
         }
         if(f==1){
-           cout<<"§A¬°¥ı¤â!\n";
+           cout<<"ä½ ç‚ºå…ˆæ‰‹!\n";
         }else{
-           cout<<"§A¬°«á¤â!\n";
+           cout<<"ä½ ç‚ºå¾Œæ‰‹!\n";
         }
         if(f==1){
             while(sum!=0)
             {   cout<<"\nYOU: \n";
                 print_all();
 
-                cout<<"\n ®³²Ä´X¦C? ";
+                cout<<"\n æ‹¿ç¬¬å¹¾åˆ—? ";
                 cin>>row;
-                cout<<" ®³´X­Ó? ";
+                cout<<" æ‹¿å¹¾å€‹? ";
                 cin>>how_many;
                 cout<<"\n";
                 while(row>n or s[row]<how_many){
-                    cout<<"¿é¤Jªº­È¶W¥X½d³ò,½Ğ¦A¥´¤@¦¸\n"<<"\n ®³²Ä´X¦C? ";
+                    cout<<"è¼¸å…¥çš„å€¼è¶…å‡ºç¯„åœ,è«‹å†æ‰“ä¸€æ¬¡\n"<<"\n æ‹¿ç¬¬å¹¾åˆ—? ";
                     cin>>row;
-                    cout<<" ®³´X­Ó? ";
+                    cout<<" æ‹¿å¹¾å€‹? ";
                     cin>>how_many;
                     cout<<"\n";
                 }
@@ -171,7 +171,7 @@ int main(){
                     cout<<"\nYOU WIN !\n"<<" ----------------- \n";
                     break;
                 }
-                cout<<"\n¹q¸£: \n";
+                cout<<"\né›»è…¦: \n";
                 print_ten_to_two();
                 if(sum==0)
                     cout<<"\nYOU LOSE\n";
@@ -180,7 +180,7 @@ int main(){
         }else{
              while(sum!=0)
             {
-                cout<<"\n¹q¸£: \n";
+                cout<<"\né›»è…¦: \n";
                 print_ten_to_two();
                 if(sum==0){
                     cout<<"\nYOU LOSE\n"<<" ----------------- \n";
@@ -189,15 +189,15 @@ int main(){
                 cout<<"\nYOU: \n";
                 print_all();
 
-                cout<<"\n ®³²Ä´X¦C? ";
+                cout<<"\n æ‹¿ç¬¬å¹¾åˆ—? ";
                 cin>>row;
-                cout<<" ®³´X­Ó? ";
+                cout<<" æ‹¿å¹¾å€‹? ";
                 cin>>how_many;
                 cout<<"\n";
                 while(row>n or s[row]<how_many){
-                    cout<<"¿é¤Jªº­È¶W¥X½d³ò,½Ğ¦A¥´¤@¦¸\n"<<"\n ®³²Ä´X¦C? ";
+                    cout<<"è¼¸å…¥çš„å€¼è¶…å‡ºç¯„åœ,è«‹å†æ‰“ä¸€æ¬¡\n"<<"\n æ‹¿ç¬¬å¹¾åˆ—? ";
                     cin>>row;
-                    cout<<" ®³´X­Ó? ";
+                    cout<<" æ‹¿å¹¾å€‹? ";
                     cin>>how_many;
                     cout<<"\n";
                 }
@@ -214,13 +214,13 @@ int main(){
 
         }
         cout<<" FINISH \n\n";
-        cout<<"­n¦Aª±¤@¦¸¶Ü? (1 yes /2 no): ";
+        cout<<"è¦å†ç©ä¸€æ¬¡å—? (1 yes /2 no): ";
         cin>>yon;
         cout<<"\n";
         while(yon!=2 and yon!=1)
         {
-            cout<<"¿é¤Jªº­È¶W¥X½d³ò,½Ğ¦A¥´¤@¦¸\n";
-            cout<<"­n¦Aª±¤@¦¸¶Ü? (1 yes /2 no): ";
+            cout<<"è¼¸å…¥çš„å€¼è¶…å‡ºç¯„åœ,è«‹å†æ‰“ä¸€æ¬¡\n";
+            cout<<"è¦å†ç©ä¸€æ¬¡å—? (1 yes /2 no): ";
             cin>>yon;
             cout<<"\n";
         }
